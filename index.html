@@ -105,7 +105,7 @@ This slide puts an image in a .c-70 tag, which will center the image in the slid
 ---
 # Nesting
 
-- You can also nested layout tags. One nice trick is to use a .c tag inside another tag to add padding
+- You can also nest layout tags. One nice trick is to use a .c tag inside another tag to add padding
 
 Here are 4 images with `.l-25` tags (no 'padding'):
 
@@ -297,7 +297,7 @@ The first parameter is the image to show, the second is the caption, and can be 
 
 - `remark_custom_style_Seubtle.css` is a css file that implements a custom style
 
-- To use this style, include the css file in your html header, right near the standard Remark js file include:
+- To use this style, include the css file in your html header:
 
 ```html
 <head>
@@ -309,6 +309,28 @@ The first parameter is the image to show, the second is the caption, and can be 
 --
 
 .l-40[
+&nbsp;
+]
+.l-60[
+- The style is called 'Seubtle', pronounce 'see-uttle' because it looks a bit like the team colors of the Seattle Seahawks, but a little more subtle.
+
+]
+
+---
+# Style
+
+- `remark_custom_style_Seubtle.css` is a css file that implements a custom style
+
+- To use this style, include the css file in your html header:
+
+```html
+<head>
+    <script src="./remark.js" type="text/javascript"></script>
+    <link rel="stylesheet" href="./remark_custom_style_Seubtle.css">
+</head>
+```
+
+.l-40[
 .c-90[
 ![](images/hotdog.png)
 ]
@@ -318,6 +340,7 @@ The first parameter is the image to show, the second is the caption, and can be 
 
 - Not as good as "Hot Dog Stand", but what can you do?
 ]
+
 ---
 # Remark
 
