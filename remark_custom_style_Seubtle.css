@@ -1,0 +1,129 @@
+/* A subdued style sheet for remark presentations */
+
+@import url(http://fonts.googleapis.com/css?family=Roboto);
+@import url(http://fonts.googleapis.com/css?family=Roboto+Condensed);
+
+h1,
+h2,
+h3 {
+  font-family: 'Roboto Condensed';
+}
+h1 {
+  font-size: 2.5em;
+  border-bottom: 2px solid #32CD32;
+  padding-bottom: .05em;
+  margin-bottom: .5em;
+  font-weight: bold;
+}
+h2 {
+  font-weight: bold;
+  font-size: 2em;
+}
+h3 {
+  font-size: 1.6em;
+}
+
+body {
+  font-family: 'Roboto';
+  color: #557;
+  font-size: 2em;
+}
+
+.i {
+  font-style: italic;
+}
+
+.b {
+    font-weight: bold;
+}
+
+.fs-75 {
+    font-size: 75%;
+}
+.fs-60 {
+    font-size: 60%;
+}
+
+/* Looks great, but doesn't work in bullets */
+.sub, .sup {vertical-align: baseline; position: relative; font-size: 70%;} /* 70% size of its parent element font-size which is good. */
+.sub {bottom: -0.4em;} /* use em becasue they adapt to parent font-size */
+.sup {top: -0.4em;} /* use em becasue they adapt to parent font-size */
+
+/*** Table Styles **/
+.table {
+  margin-left: 0%;
+  margin-right: 0%;
+  width: 100%;
+  padding:.5em;
+  background: red;
+}
+/*
+.table-fill {
+  background: red;
+  border-collapse: collapse;
+  margin: auto;
+  padding:.5em;
+  width: 100%;
+  margin-left: 0%;
+  margin-right: 0%;
+}
+*/
+th {
+  color:#D5DDE5;;
+  background:#557;
+  border-right: .05em solid #fff;
+  font-weight: 100;
+  padding:.3em;
+  text-align:left;
+  vertical-align:middle;
+}
+
+th:last-child {
+  border-right:none;
+}
+
+tr {
+  border-top: 1px solid #C1C3D1;
+  border-bottom-: 1px solid #C1C3D1;
+  color:#666B85;
+  font-weight:normal;
+}
+
+tr:first-child {
+  border-top:none;
+}
+
+tr:last-child {
+  border-bottom:none;
+}
+
+tr:nth-child(odd) td {
+  background:#EBEBEB;
+}
+
+td {
+  background:#FFFFFF;
+  padding:.2em;
+  text-align:left;
+  vertical-align:middle;
+}
+
+td:last-child {
+  border-right: 0px;
+}
+
+
+/* Codeblocks: */
+.formula {
+  display: block;
+  unicode-bidi: embed;
+  white-space: pre;
+  margin-top: 1em;
+  margin: .1em;
+  padding: 1em;
+  border: 1px solid #557;
+  background-color: #EBEBEB;
+  font-family:Consolas,Monaco,Lucida Console,Liberation Mono,DejaVu Sans Mono,Bitstream Vera Sans Mono,Courier New, monospace;
+  width: 95%;
+}
+

@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>A Demo Remark Presentation</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link rel="stylesheet" href="./remark_custom_style_Seubtle.css">
+    <link rel="stylesheet" href="./remark_custom_layout.css">
+    <script src="./remark.js" type="text/javascript"></script>
+    <script src="./remark_sound.js" type="text/javascript"></script>
+  </head>
+  <body>
+    <textarea id="source">
+
+class: center, middle
+# A Demo Remark Presentation
+
+## Christopher A. Brown
+
+---
+# Introduction
+
+- [Markdown](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet) is a simple but powerful text format specification that is quickly being adopted by many in academics and elsewhere as the format of choice for manuscripts, presentations, and other scholarly writing
+
+- [Remark](https://github.com/gnab/remark) is a great javascript file that turns markdown into html5 presentations that can be viewed in just about any browser
+
+  - Thus, your presentations are:
+
+      - editable with any plain text editor, such as a code editor
+
+      - viewable in any standards-compliant web browser and on any device or platform
+
+- This demo presentation shows some custom features that I have written over time to assist with making good-looking presentations with Remark
+
+- This does not cover any of the many features of Remark itself
+
+  - For that, you can read the [wiki](https://github.com/gnab/remark/wiki)
+
+---
+# Custom Layout
+
+- `remark_custom_layout.css` contains tags that help with layout
+
+- Tags look like this: `.l-50[content]`
+
+  - The letter can be `l`, `r`, or `c` (for left, right, or center), which indicates the alignment of the created div inside its container
+
+  - The number specifies how wide to make the div, in percent width of its container. Possible values are:
+
+    5, 10, 15, 20, 25, 30, 33, 35, 40, 45, 50, 55, 60, 65, 67, 70, 75, 80, 85, 90, 95
+
+- So, .l-50 will create a div that is half the width of its container (the slide if it is not inside another div), and be on the left
+
+- To use this layout sceme, include the css file in your html header, right near the standard Remark js file include:
+
+```html
+<head>
+    <script src="./remark.js" type="text/javascript"></script>
+    <link rel="stylesheet" href="./remark_custom_layout.css">
+</head>
+```
+
+---
+# Single Column Layouts
+
+.c-70[
+![](images/windows_boot.png)
+]
+
+--
+This slide puts an image in a .c-70 tag, which will center the image in the slide, and make its width 70% of the slide width:
+
+```markdown
+.c-70[
+![](images/windows_boot.png)
+]
+```
+
+---
+# 2-Column Layouts
+
+.l-50[
+![](images/dos-setup-error.jpg)
+]
+.l-50[
+- Use multiple `l` tags to 'stack' from left to right (or `r` tags to go from right to left)
+
+    - Make sure they don't add up to more than 100
+
+    - So two .l-50 tags in a row will create a two-column layout, like on this slide
+
+- The markdown for this slide looks like this:
+
+
+```markdown
+  .l-50[
+  ![](images/dos-setup-error.jpg)
+  ]
+  .l-50[
+  - Use multiple `l` tags to...
+  ]
+```
+
+]
+
+---
+# Nesting
+
+- You can also nested layout tags. One nice trick is to use a .c tag inside another tag to add padding
+
+Here are 4 images with `.l-25` tags (no 'padding'):
+
+.row[
+.l-25[
+![](images/error-success.png)
+]
+.l-25[
+![](images/error_disk_space.jpg)
+]
+.l-25[
+![](images/error-1.jpg)
+]
+.l-25[
+![](images/error_critical.png)
+]
+]
+
+And here they are with `.c-95` tags nested in the `.l-25`, to provide some padding:
+
+.row[
+.l-25[
+.c-95[
+![](images/error-success.png)
+]
+]
+.l-25[
+.c-95[
+![](images/error_disk_space.jpg)
+]
+]
+.l-25[
+.c-95[
+![](images/error-1.jpg)
+]
+]
+.l-25[
+.c-95[
+![](images/error_critical.png)
+]
+]
+]
+
+---
+# Nesting
+
+The markdown for the previous slide (with padding) is below. We wrap all 4 images in a `.row` tag to make sure any subsequent lines are justified properly.
+
+```markdown
+.row[
+.l-25[
+.c-95[
+![](images/error-success.png)
+]]
+.l-25[
+.c-95[
+![](images/error_disk_space.jpg)
+]]
+.l-25[
+.c-95[
+![](images/error-1.jpg)
+]]
+.l-25[
+.c-95[
+![](images/error_critical.png)
+]]
+]
+```
+
+---
+# A Two-By-Two Matrix
+
+- The `.row` tag creates something like a hard-return. This permits rows of columns and ensures that subsequent content is justified properly. Row height is determined by the content. Here is the markdown for the next slide:
+
+```markdown
+.row[
+.l-50[
+.c-90[
+![](images/bluescreen.png)
+]]
+.r-50[
+.c-90[
+![](images/deltree.jpg)
+]]]
+
+.row[
+.l-50[
+.c-80[
+![](images/crash_1.jpg)
+]]
+.r-50[
+.c-90[
+![](images/31.png)
+]]]
+```
+
+---
+# A Two-By-Two Matrix
+
+.row[
+.l-50[
+.c-90[
+![](images/bluescreen.png)
+]
+]
+.r-50[
+.c-90[
+![](images/deltree.jpg)
+]
+]
+]
+
+--
+
+.row[
+.l-50[
+.c-80[
+![](images/crash_1.jpg)
+]
+]
+.r-50[
+.c-90[
+![](images/31.png)
+]
+]
+]
+
+---
+# A Two-By-Two Matrix
+
+.row[
+.l-50[
+.c-90[
+![](images/bluescreen.png)
+]
+]
+.r-50[
+.c-90[
+- You can manage simple placement of images or text on a slide
+]
+]
+]
+
+.row[
+.l-50[
+- For images, it is a good idea to save each image at the highest resolution possible, since the displayed size will not be known until showing the presentation. 
+
+  - Better to shrink images than to expand them
+]
+.r-50[
+.c-90[
+![](images/31.png)
+]
+]
+]
+
+---
+# Playing Sounds
+
+- `remark_sound.js` provides a js macro to play a sound when an icon is clicked
+
+- To use this macro, include the js file in your html header:
+
+```html
+<head>
+    <script src="./remark.js" type="text/javascript"></script>
+    <script src="./remark_sound.js" type="text/javascript"></script>
+</head>
+```
+
+![:sound images/icon_error.png, Click here to play a sound](images/DING.WAV)
+This is a custom object that represents a clickable image. Both the image and the caption text are clickable. This text right here is not part of the clickable object, it is just added below it. The syntax looks like this:
+
+```markdown
+![:sound images/icon_error.png, Click here](images/DING.WAV)
+```
+
+--
+![:sound images/icon_attention.png](images/owin31.wav)
+The first parameter is the image to show, the second is the caption, and can be ommitted, or enclosed in single or double quotes. Don't include a comma in the caption, because it will be incorrectly parsed as a delimiter by remark. 
+
+```markdown
+![:sound images/icon_attention.png](images/owin31.wav)
+```
+
+
+---
+# Style
+
+- `remark_custom_style_Seubtle.css` is a css file that implements a custom style
+
+- To use this style, include the css file in your html header, right near the standard Remark js file include:
+
+```html
+<head>
+    <script src="./remark.js" type="text/javascript"></script>
+    <link rel="stylesheet" href="./remark_custom_style_Seubtle.css">
+</head>
+```
+
+--
+
+.l-40[
+.c-90[
+![](images/hotdog.png)
+]
+]
+.l-60[
+- The style is called 'Seubtle', pronounce 'see-uttle' because it looks a bit like the team colors of the Seattle Seahawks, but a little more subtle.
+
+- Not as good as "Hot Dog Stand", but what can you do?
+]
+---
+# Remark
+
+- For more information on Remark, see:
+
+    - https://github.com/gnab/remark
+
+    - http://github.com/gnab/remark/wiki
+
+    </textarea>
+        <script type="text/javascript">var slideshow = remark.create({countIncrementalSlides: false});</script>
+
+  </body>
+</html>
